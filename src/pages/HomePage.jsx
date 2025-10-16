@@ -47,15 +47,20 @@ const HomePage = () =>{
 
             <ul>
                 {characters
-                .filter((character) =>
-                    character.name.toLowerCase().includes(name.toLowerCase()))
-                .filter((character) => {
-                    if (!house) return true;
-                    return (character.house || "").toLowerCase() === house.toLowerCase();
+                .filter(character => character.name.toLowerCase().includes(name.toLowerCase()))
+                .filter(character =>{
+                        if (house === "") {
+                            return true;
+                        } else {
+                            return house === character.house;
+                        }
+                    })
+                .sort((a, b) =>{
+                    return a.name.localeCompare(b.name)
                 })
                 .map((character, id) => (
                     <li key={id}>
-                        <p>{character.name}</p>
+                        <Link to={`/character/${character.id}`}><p>{character.name}</p></Link>
                         {character.image ? <img src={character.image} alt={character.name}/> : <img src={"https://media.desenio.com/site_images/68631b0f92c536b9cc92b033_1852152599_WB0012-5.jpg"} />}
                         <p>{character.gender} | {character.species} | {character.house}</p>
                     </li>
