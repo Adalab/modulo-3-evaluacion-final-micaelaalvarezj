@@ -5,6 +5,22 @@
   text-align: center;
 }
 
+.GapImageList {
+    max-width: 100px;
+}
+
+.characterImageList {
+  max-width: 100px;
+}
+
+.characterImageDetail {
+  max-width: 100px;
+}
+
+.gapImageDetail {
+  max-width: 100px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

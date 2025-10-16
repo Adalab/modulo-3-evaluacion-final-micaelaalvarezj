@@ -1,24 +1,31 @@
 import { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import getCharacters from "../services/api";
+import ls from "../services/localStorage";
+import Filters from "../components/Filters";
+import CharacterList from "../components/CharacterList";
+
 
 const HomePage = () =>{
-    const [characters, setCharacters] = useState([]);
+    const [characters, setCharacters] = useState(ls.get("characters",[]));
     const [name, setName] = useState("");
     const [house, setHouse] = useState("");
 
     useEffect(() => {
-        getCharacters().then(data =>{
+        if (characters.length === 0) {
+        getCharacters().then(data => {
         setCharacters(data);
+        ls.set("characters", data);
         })
+    }
   }, []);
 
-        const handleChangeName = (ev) => {
-        setName (ev.target.value);
+        const updateName = (value) => {
+        setName (value);
     }
 
-        const handleChangeHouse = (ev) => {
-        setHouse (ev.target.value);
+        const updateHouse = (value) => {
+        setHouse (value);
     }
 
     const getHouses = () => {
@@ -31,41 +38,20 @@ const HomePage = () =>{
     return (
         <>
 
-            <label htmlFor="name">Busca por personaje: </label>
-            <input name="name" id="name" value={name} onChange={handleChangeName}/>
-            <label htmlFor="house">
-                Selecciona la casa:
-                <select name="house" id="house" value={house} onChange={handleChangeHouse}>
-                    <option value="">Todas</option>
-                    {getHouses().map((housesName, index) => (
-                        <option key={index} value={housesName}>
-                            {housesName}
-                        </option>
-                    ))}
-                </select>
-            </label>
+            <Filters 
+            updateName={updateName}
+            name={name}
+            updateHouse={updateHouse}
+            house={house}
+            getHouses={getHouses}
+            />
 
-            <ul>
-                {characters
-                .filter(character => character.name.toLowerCase().includes(name.toLowerCase()))
-                .filter(character =>{
-                        if (house === "") {
-                            return true;
-                        } else {
-                            return house === character.house;
-                        }
-                    })
-                .sort((a, b) =>{
-                    return a.name.localeCompare(b.name)
-                })
-                .map((character, id) => (
-                    <li key={id}>
-                        <Link to={`/character/${character.id}`}><p>{character.name}</p></Link>
-                        {character.image ? <img src={character.image} alt={character.name}/> : <img src={"https://media.desenio.com/site_images/68631b0f92c536b9cc92b033_1852152599_WB0012-5.jpg"} />}
-                        <p>{character.gender} | {character.species} | {character.house}</p>
-                    </li>
-                ))}
-            </ul>
+            <CharacterList
+            characters={characters}
+            house={house}
+            name={name}
+            />
+
         </>
     )
 }
