@@ -5,8 +5,7 @@ import FilterByHouse from "./FilterByHouse";
 const Filters = ({updateName, name, updateHouse, house, getHouses}) => {
 
     return (
-        <section>
-            <h1>Filtros</h1>
+        <section className="filters">
             <FilterByName
             updateName={updateName}
             name={name}

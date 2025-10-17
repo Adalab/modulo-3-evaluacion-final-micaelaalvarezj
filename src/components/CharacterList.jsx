@@ -18,17 +18,16 @@ const UsersList = ({characters, house, name}) => {
                 })
 
     return (
-        <ul>
+        <div className="list">
                 {filteredCharacters.length === 0 ? (<p>No hay ningún personaje que coincida con la palabra {`${name}`}</p>) :
                 filteredCharacters.map((character, id) =>
-                    <li key={id}>
-                        <Link to={`/character/${character.id}`}><p>{character.name}</p></Link>
+                    <li className="itemList" key={id}>
                         <CharacterItem
                         character={character}
                         />
                     </li>
                 )}
-            </ul>
+        </div>
     )
 }
 export default UsersList

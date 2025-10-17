@@ -1,16 +1,14 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-.GapImageList {
-    max-width: 100px;
+ul {
+  list-style: none;
 }
 
-.characterImageList {
-  max-width: 100px;
+li {
+  list-style: none;
 }
 
 .characterImageDetail {
@@ -49,6 +47,10 @@
   }
 }
 
+.filters {
+  margin-bottom: 50px;
+}
+
 .card {
   padding: 2em;
 }
@@ -57,7 +59,22 @@
   color: #888;
 }
 
-.UsersList {
+.list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 20px;
 }
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  background-color: #b79a4f;
+}
+
+.characterImageList, .GapImageList {
+  object-fit: cover;
+}
+
+
+
