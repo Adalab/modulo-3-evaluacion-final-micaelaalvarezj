@@ -9,14 +9,14 @@ const FilterByHouse = ({updateHouse, house, getHouses}) => {
     return (
         <div className="filter filter-by-house">
         <label className="label-house" htmlFor="house">
-                Selecciona la casa:
-                <select name="house" id="house" value={house} onChange={handleChangeHouse}>
-                    <option value="">Todas</option>
-                    {getHouses().map((housesName, index) => (
-                        <option key={index} value={housesName}>
-                            {housesName}
-                        </option>
-                    ))}
+            Selecciona la casa:
+            <select name="house" id="house" value={house} onChange={handleChangeHouse}>
+                <option value="">Todas</option>
+                {getHouses().map((housesName, index) => (
+                    <option key={index} value={housesName}>
+                        {housesName}
+                    </option>
+                ))}
                 </select>
         </label>
         </div>

@@ -6,13 +6,13 @@ import PropTypes from "prop-types";
 const UsersList = ({characters, house, name}) => {
 
      const filteredCharacters =  characters
-                .filter(character => character.name.toLowerCase().includes(name.toLowerCase()))
-                .filter(character =>{
-                        if (house === "") {
-                            return true;
-                        } else {
-                            return house === character.house;
-                        }
+        .filter(character => character.name.toLowerCase().includes(name.toLowerCase()))
+        .filter(character =>{
+            if (house === "") {
+                return true;
+                } else {
+                return house === character.house;
+                }
                     })
                 .sort((a, b) =>{
                     return a.name.localeCompare(b.name)
@@ -20,14 +20,14 @@ const UsersList = ({characters, house, name}) => {
 
     return (
         <div className="list">
-                {filteredCharacters.length === 0 ? (<p>No hay ningún personaje que coincida con la palabra {`${name}`}</p>) :
-                filteredCharacters.map((character, id) =>
-                    <li className="item-list" key={id}>
-                        <CharacterItem
-                        character={character}
-                        />
-                    </li>
-                )}
+            {filteredCharacters.length === 0 ? (<p>No hay ningún personaje que coincida con la palabra {`${name}`}</p>) :
+            filteredCharacters.map((character, id) =>
+                <li className="item-list" key={id}>
+                    <CharacterItem
+                    character={character}
+                    />
+                </li>
+            )}
         </div>
     )
 }

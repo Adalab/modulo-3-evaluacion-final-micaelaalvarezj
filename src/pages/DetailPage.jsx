@@ -25,15 +25,13 @@ const DetailPage = () => {
         <>
         {characterData ? (
             <>
-            <CharacterCard
-            characterData={characterData}
-            />
-            <Link className="back-link" to="/">Volver</Link>
+                <CharacterCard characterData={characterData}/>
+                <Link className="back-link" to="/">Volver</Link>
             </>
         ) : (<>
                 <p>Usuario no encontrado</p>
                 <Link to="/">Volver</Link>
-                </>
+            </>
             )}
         </>
     )

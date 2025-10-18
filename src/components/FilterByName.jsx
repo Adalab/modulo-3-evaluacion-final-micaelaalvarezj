@@ -8,8 +8,8 @@ const FilterByName = ({updateName, name}) => {
     
     return (
         <div className="filter filter-by-name">
-        <label htmlFor="name">Busca por personaje: </label>
-        <input name="name" id="name" value={name} onChange={handleChangeName}/>
+            <label htmlFor="name">Busca por personaje: </label>
+            <input name="name" id="name" value={name} onChange={handleChangeName}/>
         </div>
     )
 }

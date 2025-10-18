@@ -41,17 +41,17 @@ const HomePage = () =>{
         <>
             <img src={HarryPotter}/>
             <Filters 
-            updateName={updateName}
-            name={name}
-            updateHouse={updateHouse}
-            house={house}
-            getHouses={getHouses}
+                updateName={updateName}
+                name={name}
+                updateHouse={updateHouse}
+                house={house}
+                getHouses={getHouses}
             />
 
             <CharacterList
-            characters={characters}
-            house={house}
-            name={name}
+                characters={characters}
+                house={house}
+                name={name}
             />
 
         </>
