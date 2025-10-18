@@ -4,12 +4,12 @@ import getCharacters from "../services/api";
 import ls from "../services/localStorage";
 import Filters from "../components/Filters";
 import CharacterList from "../components/CharacterList";
-
+import HarryPotter from "../images/harry-potter-logo.png"
 
 const HomePage = () =>{
     const [characters, setCharacters] = useState(ls.get("characters",[]));
-    const [name, setName] = useState("");
-    const [house, setHouse] = useState("");
+    const [name, setName] = useState(ls.get("FilterName",""));
+    const [house, setHouse] = useState(ls.get("FilterHouse",""));
 
     useEffect(() => {
         if (characters.length === 0) {
@@ -22,10 +22,12 @@ const HomePage = () =>{
 
         const updateName = (value) => {
         setName (value);
+        ls.set("FilterName", value);
     }
 
         const updateHouse = (value) => {
         setHouse (value);
+        ls.set("FilterHouse", value);
     }
 
     const getHouses = () => {
@@ -37,7 +39,7 @@ const HomePage = () =>{
 
     return (
         <>
-            <img src="./src/images/harry-potter-logo.png"/>
+            <img src={HarryPotter}/>
             <Filters 
             updateName={updateName}
             name={name}
