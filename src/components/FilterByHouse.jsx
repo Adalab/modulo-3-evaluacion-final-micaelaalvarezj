@@ -1,4 +1,5 @@
 import "react";
+import PropTypes from "prop-types";
 
 const FilterByHouse = ({updateHouse, house, getHouses}) => {
 
@@ -6,8 +7,8 @@ const FilterByHouse = ({updateHouse, house, getHouses}) => {
         updateHouse (ev.target.value)}
     
     return (
-        <>
-        <label htmlFor="house">
+        <div className="filter filter-by-house">
+        <label className="label-house" htmlFor="house">
                 Selecciona la casa:
                 <select name="house" id="house" value={house} onChange={handleChangeHouse}>
                     <option value="">Todas</option>
@@ -18,7 +19,13 @@ const FilterByHouse = ({updateHouse, house, getHouses}) => {
                     ))}
                 </select>
         </label>
-        </>
+        </div>
     )
 }
-export default FilterByHouse
+export default FilterByHouse;
+
+FilterByHouse.propTypes = {
+    updateHouse: PropTypes.string.isRequired,
+    house: PropTypes.string.isRequired,
+    getHouses: PropTypes.string.isRequired,
+}

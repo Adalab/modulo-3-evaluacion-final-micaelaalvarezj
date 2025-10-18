@@ -37,7 +37,7 @@ const HomePage = () =>{
 
     return (
         <>
-
+            <img src="./src/images/harry-potter-logo.png"/>
             <Filters 
             updateName={updateName}
             name={name}
