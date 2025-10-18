@@ -4,7 +4,7 @@ import FilterByHouse from "./FilterByHouse";
 import PropTypes from "prop-types";
 
 const Filters = ({updateName, name, updateHouse, house, getHouses}) => {
-
+    
     return (
         <section className="filters">
             <FilterByName
