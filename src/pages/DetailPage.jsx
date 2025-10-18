@@ -16,7 +16,7 @@ const DetailPage = () => {
             <CharacterCard
             characterData={characterData}
             />
-            <Link to="/">Volver</Link>
+            <Link className="back-link" to="/">Volver</Link>
             </>
         ) : (<>
                 <p>Usuario no encontrado</p>

@@ -16,7 +16,7 @@ li {
 }
 
 .character-image-detail {
-  max-width: 100px;
+  width: 100px;
 }
 
 .logo {
@@ -70,6 +70,7 @@ li {
 
 .character-image-list, .gap-image-list {
   object-fit: cover;
+  height: 350px;
 }
 
 .paragraph-character-list-name{
@@ -116,7 +117,7 @@ body {
 .filter select {
   background-color: transparent;
   border: 2px solid #d4af37;
-  color: #fff;
+  color: white;
   padding: 0.4rem 0.8rem;
   border-radius: 2px;
   font-size: 1rem;
@@ -125,13 +126,11 @@ body {
   transition: border-color 0.3s ease;
 }
 
-/* Al enfocar */
 .filter input:focus,
 .filter select:focus {
   border-color: #ffdb58;
 }
 
-/* Opcional: placeholder más suave */
 .filter input::placeholder {
   color: #ccc;
 }
@@ -149,10 +148,10 @@ select {
   align-items: center;
   justify-content: flex-start;
   background-color: #4d0e0e;
-  color: #fff;
+  color: white;
   padding: 1.5rem 2rem;
   border-radius: 4px;
-  max-width: 800px;
+  max-width: 550px;
   margin: 2rem auto;
   gap: 2rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -163,4 +162,37 @@ select {
   height: 300px;
   object-fit: cover;
   border-radius: 2px;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.detail-info h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.detail-info p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.back-link {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
 }
